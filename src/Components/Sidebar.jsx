@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Home, BarChart, Book, MapPin, List, Palette, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { name: "Dashboard", icon: Home },
@@ -27,9 +28,9 @@ export default function Sidebar() {
     <>
       {!isMobile ? (
         <aside className="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r dark:bg-gray-900 dark:border-gray-700">
-          <a href="#">
-            <img className="w-auto h-7" src="https://merakiui.com/images/logo.svg" alt="Logo" />
-          </a>
+          <Link className="text-4xl font-semibold" to={'/'}>
+           Task<span className="text-[#4A90E2]">Flow</span>
+          </Link>
           <nav className="mt-6 space-y-3">
             {navItems.map((item, index) => (
               <a
