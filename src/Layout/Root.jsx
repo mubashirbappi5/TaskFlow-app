@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Components/Sidebar";
+import Header from "../Components/Header";
 
 
 const Root = () => {
@@ -10,6 +11,7 @@ const Root = () => {
         </div>
   
         <div className="col-span-12 md:col-span-8 lg:col-span-10">
+        <Header/>
           <Outlet />
         </div>
       </div>

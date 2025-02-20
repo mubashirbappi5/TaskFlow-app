@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { Home, BarChart, Book, MapPin, List, Palette, Settings } from "lucide-react";
+import { Home, BarChart,  Settings, CircleUserRound } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const navItems = [
   { name: "Dashboard", icon: Home },
   { name: "Performance", icon: BarChart },
-  { name: "Guides", icon: Book },
-  { name: "Hotspots", icon: MapPin },
-  { name: "Checklists", icon: List },
-  { name: "Themes", icon: Palette },
+  
+ 
+  
+ 
   { name: "Settings", icon: Settings },
 ];
 
@@ -42,6 +42,7 @@ export default function Sidebar() {
                 <span className="mx-2 text-sm font-medium">{item.name}</span>
               </a>
             ))}
+            <Link to={'/login'} className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700">  <CircleUserRound />Login</Link>
           </nav>
         </aside>
       ) : (
@@ -52,6 +53,7 @@ export default function Sidebar() {
               <span className="text-xs">{item.name}</span>
             </a>
           ))}
+           <Link to={'/login'} className="flex flex-col items-center text-gray-600 dark:text-gray-200 hover:text-gray-700">  <CircleUserRound /><span className="text-xs">Login</span></Link>
         </nav>
       )}
     </>
