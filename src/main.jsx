@@ -7,9 +7,12 @@ import {
  
 } from "react-router-dom";
 import MainRoute from './Route/MainRoute.jsx';
+import AuthContext from './context/AuthContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-       <RouterProvider router={MainRoute} />
+      <AuthContext>
+      <RouterProvider router={MainRoute} />
+      </AuthContext>
   </StrictMode>,
 )
