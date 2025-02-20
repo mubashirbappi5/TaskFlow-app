@@ -27,7 +27,7 @@ export default function Sidebar() {
   return (
     <>
       {!isMobile ? (
-        <aside className="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r dark:bg-gray-900 dark:border-gray-700">
+        <aside className="flex flex-col h-screen px-5 py-8 overflow-y-auto bg-white border-r dark:bg-gray-900 dark:border-gray-700">
           <Link className="text-4xl font-semibold" to={'/'}>
            Task<span className="text-[#4A90E2]">Flow</span>
           </Link>
