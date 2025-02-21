@@ -1,12 +1,17 @@
 import { useContext } from 'react';
 import img1 from '../assets/icons8-task-96.png'
 import { AuthProvider } from '../context/AuthContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const {googlelogin} = useContext(AuthProvider)
+    const navigate = useNavigate()
+    const location = useLocation()
+  const froms = location.state?.from?.pathname || '/';
     const handlelogin = ()=>{
         googlelogin()
         .then(res=>{
             console.log(res.user)
+            navigate(froms, { replace: true });
         })
         .catch(error=>{
             console.log(error)

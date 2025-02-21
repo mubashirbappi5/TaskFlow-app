@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Home, BarChart,  Settings, CircleUserRound } from "lucide-react";
 import { Link } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext";
 
 const navItems = [
   { name: "Dashboard", icon: Home },
@@ -14,7 +15,16 @@ const navItems = [
 
 export default function Sidebar() {
   const [isMobile, setIsMobile] = useState(false);
-
+const {user,signoutUser} = useContext(AuthProvider)
+const handlelogout = ()=>{
+  signoutUser()
+  .then(()=>{
+    alert('logout done')
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+}
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -42,7 +52,12 @@ export default function Sidebar() {
                 <span className="mx-2 text-sm font-medium">{item.name}</span>
               </a>
             ))}
-            <Link to={'/login'} className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700">  <CircleUserRound />Login</Link>
+            {
+              user?<div>
+                <h2>{user?.displayName}</h2>
+                <button onClick={handlelogout}>Log Out</button>
+              </div>:<Link to={'/login'} className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700">  <CircleUserRound />Login</Link>
+            }
           </nav>
         </aside>
       ) : (

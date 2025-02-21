@@ -5,6 +5,7 @@ import {
 import Root from "../Layout/Root";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
+import PrivateRoute from "./PrivateRoute";
 
 
   const MainRoute = createBrowserRouter([
@@ -13,7 +14,7 @@ import Login from "../Pages/Login";
       element: <Root/>,
       children:[{
         path:'/',
-        element:<Home/>
+        element:<PrivateRoute><Home/></PrivateRoute>
       },
       {
         path:'/login',
