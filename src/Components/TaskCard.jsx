@@ -1,20 +1,24 @@
-import { Draggable } from "react-beautiful-dnd";
+/* eslint-disable react/prop-types */
+
 
 const TaskCard = ({ task, index }) => {
+    const {title,description,timestamp}=task
   return (
-    <Draggable draggableId={task._id} index={index}>
-      {(provided) => (
+   
         <div
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
+        
           className="p-3 bg-white shadow rounded mt-2"
         >
-          <h3 className="font-bold">testing task</h3>
-          <p className="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque beatae quaerat tempora saepe. Quia cumque alias reiciendis dolorem error fugit, laboriosam sit, architecto, ut assumenda pariatur commodi. Magnam, quasi quis.</p>
+          <h3 className="font-bold">{title}</h3>
+          <h5>{timestamp}</h5>
+          <p className="text-sm">{description}</p>
+
+          <div>
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
         </div>
-      )}
-    </Draggable>
+     
   );
 };
 
