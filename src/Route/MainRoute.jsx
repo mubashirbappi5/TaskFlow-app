@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import PrivateRoute from "./PrivateRoute";
 import AddTask from "../Pages/AddTask";
+import UpdateTask from "../Pages/UpdateTask";
 
 
   const MainRoute = createBrowserRouter([
@@ -24,6 +25,15 @@ import AddTask from "../Pages/AddTask";
       {
         path:'/add-task',
         element:<PrivateRoute><AddTask/></PrivateRoute>
+
+      },
+      {
+        path:'/updateTask/:id',
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/tasks/${params.id}`
+          ),
+        element:<PrivateRoute><UpdateTask/></PrivateRoute>
 
       }
     ]

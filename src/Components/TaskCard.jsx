@@ -3,13 +3,23 @@
 import axios from 'axios';
 import moment from 'moment';
 import { MdDelete, MdEdit } from 'react-icons/md';
+import { Link,  } from 'react-router-dom';
+import useTasks from '../Hooks/useTasks';
+
 
 
 const TaskCard = ({ task, index }) => {
     const {title,description,timestamp,_id}=task
-    const handleDelete = ()=>{
-        axios.delete(`http://localhost:5000/tasks/${_id}`)
-    }
+    const [,refetch] = useTasks();
+    const handleDelete = async () => {
+        try {
+          await axios.delete(`http://localhost:5000/tasks/${_id}`);
+          refetch(); // Ensure refetch is called after deletion
+        } catch (error) {
+          console.error("Error deleting task:", error);
+        }
+      };
+   
     
   return (
    
@@ -24,7 +34,7 @@ const TaskCard = ({ task, index }) => {
           </div>
 
           <div className='flex flex-col gap-3'>
-            <button className='cursor-pointer text-blue-500'><MdEdit/></button>
+            <Link to={`/updateTask/${_id}`} className='cursor-pointer text-blue-500'><MdEdit/></Link>
             <button onClick={handleDelete} className='cursor-pointer text-red-500'><MdDelete /></button>
           </div>
         </div>
