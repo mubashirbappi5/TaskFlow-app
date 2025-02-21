@@ -3,6 +3,9 @@ import { AuthProvider } from "../context/AuthContext";
 
 import TaskList from "../Components/TaskList ";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { CirclePlus } from "lucide-react";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 
 const Home = () => {
@@ -25,7 +28,9 @@ const Home = () => {
           ))}
         </div>
       
-            <h1>this is home section {name}</h1>
+          <div className=" fixed bottom-20 right-6">
+            <Link className="" to={'/add-task'}><IoMdAddCircleOutline  className="text-7xl font-bold"/></Link>
+          </div>
         </div>
     );
 };
