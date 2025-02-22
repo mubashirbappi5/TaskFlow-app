@@ -7,15 +7,21 @@ import axios from "axios";
 
 const TaskCard = ({ task }) => {
   const { title, description, timestamp, _id } = task;
-  const [, refetch] = useTasks();
+  const [tasks, setTasks, refetch] = useTasks(); 
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:5000/tasks/${_id}`);
-    refetch();
+    try {
+      await axios.delete(`http://localhost:5000/tasks/${_id}`);
+
+     
+      setTasks(tasks.filter((t) => t._id !== _id));
+    } catch (error) {
+      console.error("Failed to delete task:", error);
+    }
   };
 
   return (
-    <div className="p-3 w-full md:w-72 bg-white shadow rounded mt-2 flex justify-between">
+    <div className="p-3 w-full bg-white shadow rounded mt-2 flex justify-between">
       <div>
         <h3 className="font-bold">{title}</h3>
         <h5>{moment(timestamp).calendar()}</h5>
