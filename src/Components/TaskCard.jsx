@@ -4,6 +4,7 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import useTasks from "../Hooks/useTasks";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const TaskCard = ({ task }) => {
   const { title, description, timestamp, _id } = task;
@@ -12,12 +13,15 @@ const TaskCard = ({ task }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:5000/tasks/${_id}`);
+      setTasks(tasks.filter((task) => task._id !== _id));
 
-     
-      setTasks(tasks.filter((t) => t._id !== _id));
-      refetch()
+      
+      refetch();
+      
+      toast.success('Task delete successfully!')
+      
     } catch (error) {
-      console.error("Failed to delete task:", error);
+      toast.error("Failed to delete task:", error);
     }
   };
 

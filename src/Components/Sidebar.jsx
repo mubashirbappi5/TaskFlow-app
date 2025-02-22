@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import {  CircleUserRound, House, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 
 
@@ -11,7 +12,7 @@ const {user,signoutUser} = useContext(AuthProvider)
 const handlelogout = ()=>{
   signoutUser()
   .then(()=>{
-    alert('logout done')
+    toast.success('LogOut successfully! ')
   })
   .catch(error=>{
     console.log(error)

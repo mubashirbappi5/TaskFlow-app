@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 
@@ -28,13 +29,13 @@ console.log(data._id)
             const res = await axios.patch(`http://localhost:5000/tasks/${data._id}`, UpdateTask);
                
             if (res.data.modifiedCount >= 1) {
-              alert("Task Updated successfully!");
+              toast.success("Task Updated successfully!");
               form.reset(); 
               Navigate('/')
             } 
           } catch (error) {
             console.error("Error adding task:", error);
-            alert("An error occurred. Please check the console.");
+            toast.error("An error occurred. Please check the console.");
           } finally {
             setLoading(false);
           }

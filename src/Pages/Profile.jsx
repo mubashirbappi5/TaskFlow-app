@@ -1,10 +1,16 @@
 import { useContext } from "react";
 import { AuthProvider } from "../context/AuthContext";
 import { FaUserAlt, FaEnvelope, FaIdBadge } from "react-icons/fa"; 
+import toast from "react-hot-toast";
 
 const Profile = () => {
-  const { user } = useContext(AuthProvider); 
-
+  const { user, signoutUser } = useContext(AuthProvider); 
+  const handleLogOut = ()=>{
+    signoutUser()
+    .then(()=>{
+        toast.success('LogOut successfully! ')
+    })
+  }
   return (
     <div className="flex justify-center   bg-gray-50">
       <div className="bg-white p-8 rounded-xl border-b-2 border-blue-400 shadow-lg max-w-md w-full">
@@ -27,7 +33,7 @@ const Profile = () => {
 
         <div className="mt-6 hidden md:flex justify-center gap-4">
           
-          <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-200">Logout</button>
+          <button onClick={handleLogOut} className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-200">Logout</button>
         </div>
       </div>
     </div>

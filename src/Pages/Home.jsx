@@ -4,6 +4,7 @@ import useTasks from "../Hooks/useTasks";
 import { DragDropContext } from "@hello-pangea/dnd";
 import axios from "axios";
 import TaskList from "../Components/TaskList";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const [tasks, setTasks, refetch] = useTasks();
@@ -31,7 +32,7 @@ const Home = () => {
       await axios.patch(`http://localhost:5000/tasks/${draggableId}`, {
         category: destination.droppableId,
       });
-
+      toast.success('task update')
       refetch();
     } catch (error) {
       console.error("Failed to update category:", error);

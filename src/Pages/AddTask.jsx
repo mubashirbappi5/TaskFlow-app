@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { AuthProvider } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddTask = () => {
   const [loading, setLoading] = useState(false); 
@@ -29,15 +30,15 @@ const{user}=useContext(AuthProvider)
       const res = await axios.post("http://localhost:5000/tasks", newTask);
 
       if (res.data.insertedId) {
-        alert("Task added successfully!");
+        toast.success("Task added successfully!");
         form.reset(); 
         navigate('/')
       } else {
-        alert("Failed to add task. Please try again.");
+        toast.error("Failed to add task. Please try again.");
       }
     } catch (error) {
       console.error("Error adding task:", error);
-      alert("An error occurred. Please check the console.");
+      toast.error("An error occurred. Please check the console.");
     } finally {
       setLoading(false);
     }
