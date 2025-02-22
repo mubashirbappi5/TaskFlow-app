@@ -28,7 +28,7 @@ const Home = () => {
     setTasks(updatedTasks);
 
     try {
-      await axios.put(`http://localhost:5000/tasks/${draggableId}`, {
+      await axios.patch(`http://localhost:5000/tasks/${draggableId}`, {
         category: destination.droppableId,
       });
 

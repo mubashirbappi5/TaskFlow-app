@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
 const UpdateTask = () => {
 const [loading, setLoading] = useState(false);
 const data = useLoaderData()
-
+const  Navigate = useNavigate()
 console.log(data._id)
     const handleSubmit= async (e)=>{
         e.preventDefault();
@@ -25,11 +25,12 @@ console.log(data._id)
         };
         console.log(UpdateTask)
         try {
-            const res = await axios.put(`http://localhost:5000/tasks/${data._id}`, UpdateTask);
+            const res = await axios.patch(`http://localhost:5000/tasks/${data._id}`, UpdateTask);
                
             if (res.data.modifiedCount >= 1) {
               alert("Task Updated successfully!");
               form.reset(); 
+              Navigate('/')
             } 
           } catch (error) {
             console.error("Error adding task:", error);
@@ -51,13 +52,14 @@ console.log(data._id)
           type="text"
           placeholder="Change Task Title"
           name="title"
-          required
+         defaultValue={data.title}
           maxLength={50}
           className="w-full p-2 border rounded"
         />
         <textarea
           placeholder="Change Task Description (optional)"
           name="description"
+          defaultValue={data.description}
           maxLength={200}
           className="w-full p-2 border rounded"
         ></textarea>

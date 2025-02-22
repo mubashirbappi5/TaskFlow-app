@@ -47,7 +47,7 @@ const handlelogout = ()=>{
       ) : (
         <nav className="fixed bottom-0 left-0 right-0 flex justify-around bg-white dark:bg-gray-900 border-t dark:border-gray-700 p-2">
          
-            <Link to={'/'} href="#" className="flex flex-col items-center text-gray-600 dark:text-gray-200 hover:text-gray-700">
+            <Link to={'/'} className="flex flex-col items-center text-gray-600 dark:text-gray-200 hover:text-gray-700">
             <House />
               <span className="text-xs">Home</span>
             </Link>

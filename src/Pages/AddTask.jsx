@@ -1,9 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthProvider } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const AddTask = () => {
-  const [loading, setLoading] = useState(false);
-
+  const [loading, setLoading] = useState(false); 
+  const  navigate = useNavigate()
+const{user}=useContext(AuthProvider)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -17,6 +20,8 @@ const AddTask = () => {
       title,
       description,
       category,
+      UserId:user?.uid,
+
       timestamp: new Date().toISOString(),
     };
 
@@ -26,6 +31,7 @@ const AddTask = () => {
       if (res.data.insertedId) {
         alert("Task added successfully!");
         form.reset(); 
+        navigate('/')
       } else {
         alert("Failed to add task. Please try again.");
       }

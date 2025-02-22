@@ -2,16 +2,36 @@ import { useContext } from 'react';
 import img1 from '../assets/icons8-task-96.png'
 import { AuthProvider } from '../context/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 const Login = () => {
     const {googlelogin} = useContext(AuthProvider)
     const navigate = useNavigate()
     const location = useLocation()
   const froms = location.state?.from?.pathname || '/';
-    const handlelogin = ()=>{
+    const handlelogin =async ()=>{
         googlelogin()
         .then(res=>{
             console.log(res.user)
-            navigate(froms, { replace: true });
+             const userinfo = {
+                UserId:res.user.uid,
+                UserName:res.user.displayName,
+                UserEmail:res.user.email
+
+             }
+             axios.post('http://localhost:5000/users',userinfo)
+             .then(res=>{
+                if(res.data.insertedId){
+                    navigate(froms, { replace: true });
+                    alert('login done')
+                }
+             })
+             .catch(error=>{
+                console.log(error)
+             })
+             console.log(userinfo)
+
+           
         })
         .catch(error=>{
             console.log(error)
