@@ -51,7 +51,7 @@ This app supports real-time synchronization, ensuring tasks are always in their 
   - Express.js
   - MongoDB
   
-  - Firebase Admin SDK (for handling Firebase authentication in backend)
+  
   - Axios (for HTTP requests)
 
 ## Installation Steps
@@ -114,5 +114,5 @@ This app supports real-time synchronization, ensuring tasks are always in their 
 
 6. The backend will be available at `http://localhost:5000`.
 
-## Folder Structure
+
 
