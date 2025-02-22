@@ -12,7 +12,7 @@ const TaskCard = ({ task }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${_id}`);
+      await axios.delete(`https://task-flow-server-theta.vercel.app/tasks/${_id}`);
       setTasks(tasks.filter((task) => task._id !== _id));
 
       

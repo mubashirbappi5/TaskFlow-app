@@ -8,9 +8,8 @@ This app supports real-time synchronization, ensuring tasks are always in their 
 
 ## Live Links
 
-- **Frontend**: [Your frontend live link here]
-- **Backend**: [Your backend live link here]
-
+- **Frontend**: [\[my frontend live link here\]](https://taskflow-app-ccd4a.web.app/)
+- **Backend**: https://task-flow-server-theta.vercel.app/
 ## Features
 
 - **Authentication**: 
@@ -25,36 +24,33 @@ This app supports real-time synchronization, ensuring tasks are always in their 
 - **Database & Persistence**: 
   - Uses MongoDB to store tasks.
   - Changes are saved instantly and tasks persist across sessions.
-  - Real-time updates using MongoDB Change Streams or WebSockets.
+ 
 
 - **Frontend**: 
   - Built with Vite.js + React.
-  - Drag-and-drop functionality using `react-beautiful-dnd` or another suitable library.
+  - Drag-and-drop functionality using `hello-pangea/dnd` or another suitable library.
   - Responsive design, optimized for both mobile and desktop users.
 
 - **Backend**: 
   - Built with Express.js to handle CRUD operations.
   - MongoDB for storing task data.
 
-- **Bonus Features**:
-  - Dark mode toggle.
-  - Task due dates with color indicators (e.g., overdue tasks in red).
-  - Activity log to track task changes (e.g., "Task moved to Done").
 
 ## Technologies Used
 
 - **Frontend**:
   - React.js
   - Vite.js
-  - react-beautiful-dnd (for drag-and-drop functionality)
+  - hello-pangea/dnd (for drag-and-drop functionality)
   - Firebase Authentication (for user login)
   - Tailwind CSS (for UI styling)
   - Moment.js (for timestamps)
+  -ten stack query(Real time update)
 
 - **Backend**:
   - Express.js
   - MongoDB
-  - Mongoose (for MongoDB object modeling)
+  
   - Firebase Admin SDK (for handling Firebase authentication in backend)
   - Axios (for HTTP requests)
 

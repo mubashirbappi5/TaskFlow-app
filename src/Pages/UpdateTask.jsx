@@ -26,7 +26,7 @@ console.log(data._id)
         };
         console.log(UpdateTask)
         try {
-            const res = await axios.patch(`http://localhost:5000/tasks/${data._id}`, UpdateTask);
+            const res = await axios.patch(`https://task-flow-server-theta.vercel.app/tasks/${data._id}`, UpdateTask);
                
             if (res.data.modifiedCount >= 1) {
               toast.success("Task Updated successfully!");

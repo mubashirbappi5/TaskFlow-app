@@ -20,7 +20,7 @@ const Login = () => {
                 UserEmail:res.user.email
 
              }
-             axios.post('http://localhost:5000/users',userinfo)
+             axios.post('https://task-flow-server-theta.vercel.app/users',userinfo)
              .then(res=>{
                 if(res.data.insertedId){
                     navigate(froms, { replace: true });

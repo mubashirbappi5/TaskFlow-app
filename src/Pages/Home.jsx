@@ -29,7 +29,7 @@ const Home = () => {
     setTasks(updatedTasks);
 
     try {
-      await axios.patch(`http://localhost:5000/tasks/${draggableId}`, {
+      await axios.patch(`https://task-flow-server-theta.vercel.app/tasks/${draggableId}`, {
         category: destination.droppableId,
       });
       toast.success('task update')

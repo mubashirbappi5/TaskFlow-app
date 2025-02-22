@@ -27,7 +27,7 @@ const{user}=useContext(AuthProvider)
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/tasks", newTask);
+      const res = await axios.post("https://task-flow-server-theta.vercel.app/tasks", newTask);
 
       if (res.data.insertedId) {
         toast.success("Task added successfully!");
