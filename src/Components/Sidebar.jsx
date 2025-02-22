@@ -38,7 +38,7 @@ const handlelogout = ()=>{
           <Link to={'/'} className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700">    <House />Home</Link>
             {
               user?<div>
-                <h2 className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700" ><CircleUserRound /> {user?.displayName}</h2>
+                <Link to={'/profile'} className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700" ><CircleUserRound /> {user?.displayName}</Link>
                 <button className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700" onClick={handlelogout}><LogOut />Log Out</button>
               </div>:<Link to={'/login'} className="flex gap-2 items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-700">  <CircleUserRound />Login</Link>
             }
@@ -52,7 +52,7 @@ const handlelogout = ()=>{
               <span className="text-xs">Home</span>
             </Link>
          {
-          user?<><Link  className="flex flex-col items-center text-gray-600 dark:text-gray-200 hover:text-gray-700">  <CircleUserRound /><span className="text-xs">{user?.displayName}</span></Link>
+          user?<><Link to={'/profile'} className="flex flex-col items-center text-gray-600 dark:text-gray-200 hover:text-gray-700">  <CircleUserRound /><span className="text-xs">{user?.displayName}</span></Link>
           <button className="cursor-pointer" onClick={handlelogout}>  <LogOut /></button></> 
         :<Link className="flex flex-col items-center text-gray-600 dark:text-gray-200 hover:text-gray-700">  <CircleUserRound /><span className="text-xs">Login</span></Link>
          }

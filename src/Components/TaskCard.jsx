@@ -15,6 +15,7 @@ const TaskCard = ({ task }) => {
 
      
       setTasks(tasks.filter((t) => t._id !== _id));
+      refetch()
     } catch (error) {
       console.error("Failed to delete task:", error);
     }

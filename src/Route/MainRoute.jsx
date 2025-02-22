@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import PrivateRoute from "./PrivateRoute";
 import AddTask from "../Pages/AddTask";
 import UpdateTask from "../Pages/UpdateTask";
+import Profile from "../Pages/Profile";
 
 
   const MainRoute = createBrowserRouter([
@@ -34,6 +35,12 @@ import UpdateTask from "../Pages/UpdateTask";
             `http://localhost:5000/tasks/${params.id}`
           ),
         element:<PrivateRoute><UpdateTask/></PrivateRoute>
+
+      },
+      {
+        path:'/profile',
+      
+        element:<PrivateRoute><Profile/></PrivateRoute>
 
       }
     ]
