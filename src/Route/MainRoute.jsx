@@ -36,7 +36,7 @@ const MainRoute = createBrowserRouter([
       {
         path: "/updateTask/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(`https://task-flow-server-theta.vercel.app/tasks/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateTask />
