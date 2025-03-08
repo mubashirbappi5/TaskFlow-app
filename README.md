@@ -8,7 +8,7 @@ This app supports real-time synchronization, ensuring tasks are always in their 
 
 ## Live Links
 
-- **Frontend**: [\[my frontend live link here\]](https://taskflow-app-ccd4a.web.app/)
+- **Frontend**: [\[my frontend live link here\]](https://symphonious-pony-25890c.netlify.app/)
 - **Backend**: https://task-flow-server-theta.vercel.app/
 ## Features
 
